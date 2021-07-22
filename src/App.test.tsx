@@ -1,9 +1,16 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+import App from "./App";
+import { TestProviders } from "./utils/test";
+import { initialState } from "./providers/LoginProvider";
+
+describe("<IndexPage />", () => {
+  it("should display app title", () => {
+    render(
+      <TestProviders loginProvider={initialState}>
+        <App />
+      </TestProviders>
+    );
+    expect(screen.getByText("Login Search")).toBeInTheDocument();
+  });
 });
