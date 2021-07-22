@@ -3,6 +3,9 @@ import Typography from "@material-ui/core/Typography";
 import SearchLogin from "../components/SearchLogin";
 import LoginResults from "../components/LoginResults.tsx";
 
+/**
+ * Index page to load all the required components.
+ */
 const IndexPage = () => {
   return (
     <>

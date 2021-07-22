@@ -17,6 +17,7 @@ export const getLogin = (state: StateT) => state.login;
 export const getLoading = (state: StateT) => state.loading;
 export const getError = (state: StateT) => state.error;
 
+// Deserializes the logins results into the needs of the component.
 export const getLogins = createSelector(getItems, (items): LoginsT => {
   return items.map((item: any) => ({
     avatarUrl: item.avatar_url,

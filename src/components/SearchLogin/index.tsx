@@ -10,6 +10,10 @@ const validationSchema = yup.object({
   login: yup.string().required("Login is required."),
 });
 
+/**
+ * Component that displays a form to search for login results.
+ * It has the proper validation when the login input is empty.
+ */
 const SearchLogin = () => {
   const { getResults } = React.useContext(LoginContext);
   const formik = useFormik({

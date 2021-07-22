@@ -62,6 +62,11 @@ const fetchLogins = async (login: string, page: number) => {
   }
 };
 
+/**
+ * Provides state for the logins results and allows to fetch more results
+ * @param {object} props
+ * @param {React.Node} props.children content to be rendered inside the provider
+ */
 const LoginProvider = ({ children }: LoginProviderT) => {
   const [state, setState] = React.useState(initialState.state);
   const getResults = React.useCallback(

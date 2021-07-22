@@ -24,6 +24,11 @@ import {
 } from "./selectors";
 import type { LoginsT } from "./selectors";
 
+/**
+ * Sort the logins asc or desc based on the login property.
+ * @param {LoginsT} logins - All the logins that came from the API.
+ * @param {string} dir the direction that we want to sort them.
+ */
 const sortLogins = (logins: LoginsT, dir: string) => {
   if (dir === "asc") {
     return logins.sort((a, b) => {
@@ -40,6 +45,11 @@ const sortLogins = (logins: LoginsT, dir: string) => {
   });
 };
 
+/**
+ * Component that displays all the login results.
+ * It has pagination which allows to load more results.
+ * Displays errors or loading indications based on state.
+ */
 const LoginResults = () => {
   const { state, getResults } = React.useContext(LoginContext);
   const [sortDir, setSortDir] = React.useState<"asc" | "desc">("asc");
@@ -51,6 +61,7 @@ const LoginResults = () => {
   const isLoading = getLoading(state);
   const error = getError(state);
 
+  // Sets the sortin direction of the component.
   const handleSorting = () => {
     setSortDir((prevSorting) => {
       if (prevSorting === "asc") {
@@ -60,6 +71,7 @@ const LoginResults = () => {
     });
   };
 
+  // Handles when the next or previous is clicking from the pagination.
   const handleChangePage = (event: any, newPage: number) => {
     getResults(login, newPage);
   };
