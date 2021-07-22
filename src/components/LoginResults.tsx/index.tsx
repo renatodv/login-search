@@ -71,7 +71,11 @@ const LoginResults = () => {
     });
   };
 
-  // Handles when the next or previous is clicking from the pagination.
+  /**
+   * Handles when the next or previous is clicking from the pagination.
+   * @param {any} event - Event coming from the pagination component that we won't be using.
+   * @param {number} newPage - The page that we want to get the results.
+   */
   const handleChangePage = (event: any, newPage: number) => {
     getResults(login, newPage);
   };
